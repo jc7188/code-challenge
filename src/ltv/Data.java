@@ -96,17 +96,17 @@ public class Data {
         }
         for(int i = 0; i < events.length; i++) {
             Event event = events[i];
-            if(events[i].getClass().getName().endsWith("Customer")) {
+            if(events[i] instanceof Customer) {
                 data.put(event.getKey(), (Customer)event);                
-            } else if(events[i].getClass().getName().endsWith("SiteVisit")) {
+            } else if(events[i] instanceof SiteVisit) {
                 SiteVisit visit = (SiteVisit)event;
                 Customer customer = data.get(visit.getCustomer_id());
                 customer.addSite(visit);
-            } else if(events[i].getClass().getName().endsWith("Image")) {
+            } else if(events[i] instanceof Image) {
                 Image image = (Image)events[i];
                 Customer customer = data.get(image.getCustomer_id());
                 customer.addImage(image);
-            } else if(events[i].getClass().getName().endsWith("Order")) {
+            } else if(events[i] instanceof Order) {
                 Order order = (Order)events[i];
                 Customer customer = data.get(order.getCustomer_id());
                 customer.addOrder(order);
