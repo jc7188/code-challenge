@@ -115,6 +115,7 @@ public class Data {
                 System.out.println(events[i].toString());
             }
         }
+        System.out.println("1. Number of events loaded: "+ events.length);
     }
     
     /**

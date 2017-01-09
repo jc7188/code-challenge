@@ -22,10 +22,14 @@ public class Controler {
     public static void main(String[] args) {
         Data data = new Data();      
         String file = args[0];
+        System.out.println("Input parameters : ");
         System.out.println("File: " + args[0]);
         System.out.println("Number of customers to search: " + args[1]);
+        System.out.println("");
         ingest(file, data);
         Customer[] topKcustomers = topXSimpleLTVCustomer(Integer.parseInt(args[1]), data);
+        System.out.println("");
+        System.out.println("2. Printing out top "+ args[1] + " customers sorted by simple lift time value");
         for(int i = 0; i < topKcustomers.length; i++) {
             System.out.println(topKcustomers[i]);
         }        
